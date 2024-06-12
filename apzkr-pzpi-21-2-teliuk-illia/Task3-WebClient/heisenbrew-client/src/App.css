@@ -1,0 +1,37 @@
+#root {
+  width: 100vw;
+  text-align: center;
+  background-color: whitesmoke;
+  color: black;
+}
+
+tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+  background: #fff;
+}
+
+th,
+td {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.wrapper {
+  width: calc(100vw - 10rem);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.content {
+  padding: 40px 0;
+}
+
+.toast {
+  font-size: 2rem;
+}
