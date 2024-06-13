@@ -35,17 +35,17 @@ __________________ ст.викл. Сокорчук І.П.
 1.
 Тема роботи: «Програмна система для автоматизації крафтового пивоваріння»
 2.
-Термін узгодження завдання курсової роботи «___»__________ 2024 р.
+Термін узгодження завдання курсової роботи «25» березня 2024 р.
 3.
-Термін здачі студентом закінченої роботи «___»___________ 2024 р.
+Термін здачі студентом закінченої роботи «14» червня 2024 р.
 4.
 Вихідні дані до проекту (роботи): В програмній системі передбачити:
-унікальність, можливість заробітку, актуальність, розповсюдженість, масштабованість, пітримка інтернаціоналізації, локалізація, забезпечення конфіденційності та адміністрування системи, реалізація чотирьох компонентів (Back-end, Front-end, Mobile app, IoT)
+унікальність, можливість заробітку, актуальність, розповсюдженість, масштабованість, пітримка інтернаціоналізації, локалізація, забезпечення конфіденційності та адміністрування системи, реалізація трьох компонентів (Back-end, Front-end, IoT)
 5.
 Зміст пояснювальної записки (перелік питань, що належить розробити)
-вступ, аналіз предметної області, постановка задачі, проєктування програмного проєкту, структура бази даних, розробка програмного проєкту, опис розробленої програмної системи, висновки, перелік посилань, додатки
+вступ, аналіз предметної області, постановка задачі, проєктування бази даних,архітектура програмної системи, опис програмної системи, висновки, перелік джерел посилання, додатки
 6.
-Перелік графічного матеріалу (з точним зазначенням обов’язкових креслень) Deployment Diagram, Use Case Diagram, Entity-Relationship Model, Interaction Overview Diagram, Activity Diagram, State Diagram, Component Diagram, Package Diagram
+Перелік графічного матеріалу (з точним зазначенням обов’язкових креслень), ER-діаграма бази даних, логічна схема бази даних, діаграма прецедентів, діаграма розгортання, діаграма пакетів, діаграма взаємодії, діаграма діяльності, діаграма компонентів
 3
 КАЛЕНДАРНИЙ ПЛАН
 Номер
@@ -55,16 +55,21 @@ __________________ ст.викл. Сокорчук І.П.
 1
 Функціональна специфікація
 програмного проєкту
+31.03.2024
 2
 Проєктування програмного
 проєкту
+11.04.2024
 3
 Кодування програмного проєкту
+30.05.2024
 4
 Оформлення пояснювальної
 записки
+10.6.2024
 5
 Захист курсової роботи
+14.06.2024
 Дата видачі завдання «24» березня 2024 р.
 Керівник
 __________________ доц. Лещинський В.О.
@@ -75,7 +80,7 @@ __________________ доц. Лещинський В.О.
 (підпис)
 4
 РЕФЕРАТ
-Пояснювальна записка до курсової роботи: 93 с., 32 рис., 2 табл., 3 додатки, 6 джерел.
+Пояснювальна записка до курсової роботи: 94 с., 33 рис., 2 табл., 4 додатки, 6 джерел.
 АВТОМАТИЗАЦІЯ, ПИВОВАРІННЯ, АДМІНІСТРАТОР, ПИВОВАР, ОБЛАДНАННЯ, ІНГРЕДІЄНТ, РЕЦЕПТ, КОНТРОЛЬ ПРОЦЕСУ, ПРОГРАМНА СИСТЕМА.
 Об’єктом дослідження є галузь крафтового пивоваріння, а саме розробка програмної системи для автоматизації процесу виробництва пива вдома з використанням сучасних технологій IoT та забезпеченням інтерфейсу для користувачів.
 Метою курсової роботи є створення програмної системи, яка дозволяє автоматизувати моніторинг та керування процесом виготовлення пива вдома. Система забезпечить користувачів можливістю створювати та зберігати рецепти, контролювати та відстежувати параметри процесу варіння, отримувати сповіщення про стан варіння та аналізувати дані процесу.
@@ -117,9 +122,10 @@ __________________ доц. Лещинський В.О.
 5.3 Опис програмної реалізації ........................................................................ 46
 Висновки ................................................................................................................ 56
 Перелік джерел посилання ................................................................................... 57
-Додаток А Програмний код серверної частини ................................................. 58
-Додаток Б Програмний код IoT пристрою ......................................................... 68
-Додаток В Програмний код клієнтської частини .............................................. 75
+Додаток А Результат перевірки на плагіат ......................................................... 58
+Додаток Б Програмний код серверної частини .................................................. 59
+Додаток В Програмний код IoT пристрою ......................................................... 69
+Додаток Г Програмний код клієнтської частини ............................................... 76
 7
 ВСТУП
 Пивоваріння відзначається тисячолітньою історією, протягом якої технологічний прогрес постійно змінював процес виробництва пива. Хоча великі виробники вдалися до автоматизації своїх заводів, малі виробники та любителі пива залишаються з питанням: як забезпечити якість без великих витрат?
@@ -759,7 +765,7 @@ SCSS використовувався для стилізації елемент
 Тепер слід обрати рецепт для приготування і натиснути на кнопку «Почати варіння» (див. рис. 5.13).
 Рисунок 5.13 – Вибір рецепта для приготування
 53
-Після запуску процесу пивоваріння його стан можна зручно відслідковувати на панелях «Поточний статус пивоваріння» та «Історія пивоварінь» (див. рис. 5.14). Протягом цього процесу на панелях оновлюватиметься поточний статус пивоваріння та додаватимуться логи із інформацією про всі пройдені етапи. При цьому можна дочекатися завершення процесу пивоваріння або перервати його вручну.
+Після запуску процесу пивоваріння його стан можна зручно відслідковувати на панелях «Поточний статус пивоваріння» та «Історія пивоварінь» (див. рис. 5.14). Протягом цього процесу на панелях оновлюватиметься поточний статус пивоваріння та додаватимуться логи із інформацією про всі пройдені етапи. При цьому можна дочекатися завершення процесу пивоваріння або перервати його.
 Рисунок 5.14 – Спостереження за процесом пивоваріння
 Повернемося на головну сторінку. Тепер у пункті «Дії» наявні кнопки для взаємодії з даними. Звичайний користувач може додавати собі в профіль обране обладнання або інгредієнти (див. рис. 5.15).
 Рисунок 5.15 – Вигляд головної сторінки для авторизованого пивовара
@@ -771,9 +777,9 @@ SCSS використовувався для стилізації елемент
 55
 З цієї ж сторінки, натиснувши на назву обладнання, можна перейти на сторінку із повною інформацією про це обладнання (див. рис. 5.18).
 Рисунок 5.18 – Сторінка інформації про обладнання
-Так само можна перейти на сторінку обраного рецепту і переглянути список інгредієнтів, необхідних для його приготування, та загальну ціну приготування, що розраховується відповідно до цього списку та ваги кожного інгредієнта (див. рис. 5.19).
+Так само можна перейти на сторінку обраного рецепту і переглянути список інгредієнтів в ньому та загальну ціну приготування, що розраховується відповідно до цього списку та ваги кожного інгредієнта (див. рис. 5.19).
 Рисунок 5.19 – Сторінка інформації про рецепт
-Таким чином, було описано, як користувач може взаємодіяти з розробленою програмною системою.
+Таким чином, було описано, як користувач може взаємодіяти з розробленою програмною системою. Запис результатів функціонального тестування доступний за посиланням: https://youtu.be/hiYkYjWGZ8g (дата звернення: 14.06.2024)
 56
 ВИСНОВКИ
 У результаті виконаної роботи була створена програмна система для предметної області «Автоматизація крафтового пивоваріння».
@@ -791,8 +797,12 @@ SCSS використовувався для стилізації елемент
 6. Stack overflow – Режим доступу до ресурсу: https://stackoverflow.com (дата звернення: 23.05.2024).
 58
 ДОДАТОК А
+Результат перевірки на плагіат
+Рисунок А.1– Результат перевірки на плагіат
+59
+ДОДАТОК Б
 Програмний код серверної частини
-А.1 Код основного файлу для роботи сервера Program.cs
+Б.1 Код основного файлу для роботи сервера Program.cs
 1 using DAL;
 2 using heisenbrew_api.BuildExtensions;
 3 using Serilog;
@@ -837,7 +847,7 @@ SCSS використовувався для стилізації елемент
 42
 43 var app = builder.Build();
 44 // Configure the HTTP request pipeline.
-59
+60
 45 if (app.Environment.IsDevelopment())
 46 {
 47 app.UseSwagger();
@@ -862,7 +872,7 @@ SCSS використовувався для стилізації елемент
 66 {
 67 Log.CloseAndFlush();
 68 }
-А.2 Код контролера для роботи з обладнанням
+Б.2 Код контролера для роботи з обладнанням
 1 using BLL.EquipmentManagement;
 2 using Core;
 3 using Infrustructure.Dto.Equipment;
@@ -885,7 +895,7 @@ SCSS використовувався для стилізації елемент
 20 /// <summary>
 21 /// Creates new brewing equipment.
 22 /// </summary>
-60
+61
 23 /// <param name="createBrewingEquipmentDto">The dto to create the equipment.</param>
 24 /// <remarks>
 25 /// If the operation is successful, it will return a corresponding message.
@@ -927,7 +937,7 @@ SCSS використовувався для стилізації елемент
 61 [HttpDelete("delete/{id}")]
 62 public async Task<IActionResult> DeleteBrewingEquipment(Guid id)
 63 {
-61
+62
 64 var result = await _equipmentService.DeleteEquipmentAsync(id);
 65 return this.CreateResponse(result);
 66 }
@@ -976,7 +986,7 @@ SCSS використовувався для стилізації елемент
 109 return this.CreateResponse(result);
 110 }
 111
-62
+63
 112 /// <summary>
 113 /// Gets equipment from brewer's inventory by id.
 114 /// </summary>
@@ -1021,7 +1031,7 @@ SCSS використовувався для стилізації елемент
 153 /// <returns>An IActionResult representing the result of the operation.</returns>
 154 [Authorize]
 155 [HttpGet("my-equipment/update-string/{id}/{connectionString}")]
-63
+64
 156 public async Task<IActionResult> UpdateConnectionString(Guid id, string connectionString)
 157 {
 158 var result = await _equipmentService.UpdateConnectionStringAsync(id, connectionString);
@@ -1046,7 +1056,7 @@ SCSS використовувався для стилізації елемент
 177
 178 }
 179 }
-А.3 Код сервісу для роботи із профілем користувача
+Б.3 Код сервісу для роботи із профілем користувача
 1 using AutoMapper;
 2 using Core;
 3 using DAL;
@@ -1064,7 +1074,7 @@ SCSS використовувався для стилізації елемент
 15 public class ProfileService : IProfileService
 16 {
 17 private readonly ILogger<ProfileService> _logger;
-64
+65
 18 private readonly IMapper _mapper;
 19 private readonly ApplicationDbContext _context;
 20 private readonly IHttpContextAccessor _contextAccessor;
@@ -1117,7 +1127,7 @@ SCSS використовувався для стилізації елемент
 67 .FirstOrDefaultAsync(x => x.Id == userId);
 68
 69 if (brewer is null)
-65
+66
 70 {
 71 return ProfileServiceErrors.UserNotFoundError;
 72 }
@@ -1166,8 +1176,8 @@ SCSS використовувався для стилізації елемент
 115 }
 116 }
 117 }
-66
-А.4 Код методу для запуску процесу пивоваріння
+67
+Б.4 Код методу для запуску процесу пивоваріння
 1 public async Task<Result<string, Error>> StartBrewingAsync(Guid recipeId, Guid equipmentId)
 2 {
 3 try
@@ -1208,7 +1218,7 @@ SCSS використовувався для стилізації елемент
 38 return BrewingServiceErrors.DontHaveIngredientError(ingredient.Ingredient.Name);
 39 }
 40
-67
+68
 41 var usersIngredient = user.Ingredients.FirstOrDefault(i => i.IngredientId == ingredient.IngredientId);
 42
 43 if (usersIngredient.Weight < ingredient.Weight)
@@ -1234,10 +1244,10 @@ SCSS використовувався для стилізації елемент
 63 return BrewingServiceErrors.CreateBrewingError;
 64 }
 65 }
-68
-ДОДАТОК Б
+69
+ДОДАТОК В
 Програмний код IoT пристрою
-Б.1 Стартовий файл програми
+В.1 Стартовий файл програми
 1 using Heisenbrew_iot;
 2 using System.Net;
 3 using System.Net.Sockets;
@@ -1282,7 +1292,7 @@ SCSS використовувався для стилізації елемент
 42 {
 43 Console.Write("Enter the password of the equipment: ");
 44 var password = Console.ReadLine();
-69
+70
 45
 46 if (password == appPassword) break;
 47
@@ -1334,7 +1344,7 @@ SCSS використовувався для стилізації елемент
 93 }
 94 currentBrewing.Status = Status.Filling;
 95 foreach (var ingredient in currentBrewing.Recipe.Ingredients)
-70
+71
 96 {
 97 if (isAborted)
 98 {
@@ -1381,7 +1391,7 @@ SCSS використовувався для стилізації елемент
 139 }
 140 await Task.Delay(1000);
 141 }
-71
+72
 142 }
 143
 144 static async Task ProcessRequest(HttpListenerContext context)
@@ -1434,7 +1444,7 @@ SCSS використовувався для стилізації елемент
 191 currentBrewing.Id,
 192 currentBrewing.RecipeId,
 193 Enum.GetName(typeof(Status), currentBrewing.Status),
-72
+73
 194 currentBrewing.BrewingLogs.Select(b => b.LogTime).LastOrDefault().ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss"),
 195 currentBrewing.BrewingLogs.Select(bL => new BrewingLogDto(Enum.GetName(bL.StatusCode.GetType(), bL.StatusCode), bL.Message, bL.LogTime.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss"))).ToList(),
 196 currentBrewing.CreatedAt.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss")
@@ -1476,7 +1486,7 @@ SCSS використовувався для стилізації елемент
 232 lastBrewing.CreatedAt.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss")
 233 );
 234 responseString = JsonSerializer.Serialize(brewingStatusDto);
-73
+74
 235 }
 236 break;
 237
@@ -1529,7 +1539,7 @@ SCSS використовувався для стилізації елемент
 284
 285 byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
 286 response.ContentLength64 = buffer.Length;
-74
+75
 287 await response.OutputStream.WriteAsync(buffer, 0, buffer.Length);
 288 response.Close();
 289 }
@@ -1546,10 +1556,10 @@ SCSS використовувався для стилізації елемент
 300 static List<Brewing> brewingsHistory = new List<Brewing>();
 301
 302 }
-75
-ДОДАТОК В
+76
+ДОДАТОК Г
 Програмний код клієнтської частини
-В.1 Код сторінки профілю користувача
+Г.1 Код сторінки профілю користувача
 1 import React, { useEffect, useState } from "react";
 2 import { Container, Typography, Paper, Box, Button } from "@mui/material";
 3 import { useTranslation } from 'react-i18next';
@@ -1593,7 +1603,7 @@ SCSS використовувався для стилізації елемент
 41 const [editModalOpen, setEditModalOpen] = useState(false);
 42 const userRole = localStorage.getItem("userRole");
 43 const isLogged = localStorage.getItem("bearer") !== null;
-76
+77
 44 const userId = localStorage.getItem("userId");
 45
 46 const fetchProfileData = async () => {
@@ -1649,7 +1659,7 @@ SCSS використовувався для стилізації елемент
 96 }
 97 };
 98
-77
+78
 99 return (
 100 <Container style={{ marginTop: "15rem" }}>
 101 <Paper sx={{ padding: 4, marginTop: 4 }}>
@@ -1701,8 +1711,8 @@ SCSS використовувався для стилізації елемент
 147 };
 148
 149 export default ProfilePage;
-78
-В.2 Код сервісу для надсилання запитів на апі
+79
+Г.2 Код сервісу для надсилання запитів на апі
 1 import axios from "axios";
 2
 3 const url = process.env.REACT_APP_SERVER_URL
@@ -1755,7 +1765,7 @@ SCSS використовувався для стилізації елемент
 50 price: number;
 51 }
 52
-79
+80
 53 interface UpdateIngredientDto {
 54 id: string;
 55 name: string;
@@ -1812,7 +1822,7 @@ SCSS використовувався для стилізації елемент
 106 `${url}Ingredient/my-ingredients`,
 107 {
 108 headers: { Authorization: `Bearer ${bearer}` },
-80
+81
 109 },
 110 );
 111
@@ -1869,7 +1879,7 @@ SCSS використовувався для стилізації елемент
 162 };
 163
 164 export const getCurrentBrewingStatus = async (equipmentId: string) => {
-81
+82
 165 const bearer = localStorage.getItem("bearer");
 166
 167 const { data } = await axios.get(
@@ -1924,7 +1934,7 @@ SCSS використовувався для стилізації елемент
 216 };
 217
 218 export const abortBrewing = async (equipmentId: string) => {
-82
+83
 219 const bearer = localStorage.getItem("bearer");
 220 const { data } = await axios.get(`${url}Brewing/abort/${equipmentId}`, {
 221 headers: { Authorization: `Bearer ${bearer}` },
@@ -1979,7 +1989,7 @@ SCSS використовувався для стилізації елемент
 270 };
 271
 272 export const createEquipment = async (newEquipment: CreateEquipmentDto) => {
-83
+84
 273 const bearer = localStorage.getItem("bearer");
 274 const { data } = await axios.post(`${url}Equipment/create`, newEquipment, {
 275 headers: { Authorization: `Bearer ${bearer}` },
@@ -2029,7 +2039,7 @@ SCSS використовувався для стилізації елемент
 319 const { data } = await axios.put(`${url}Ingredient/update`, newIngredient, {
 320 headers: { Authorization: `Bearer ${bearer}` },
 321 });
-84
+85
 322
 323 return data;
 324 };
@@ -2084,8 +2094,8 @@ SCSS використовувався для стилізації елемент
 373 console.error("Error downloading data:", error);
 374 }
 375 };
-85
-В.3 Код сторінки із управлінням процесами пивоваріння на обладнанні
+86
+Г.3 Код сторінки із управлінням процесами пивоваріння на обладнанні
 1 import React, { useState, useEffect } from "react";
 2 import { useParams } from "react-router-dom";
 3 import {
@@ -2138,7 +2148,7 @@ SCSS використовувався для стилізації елемент
 50 lastUpdate: string;
 51 isBrewing: boolean;
 52 }
-86
+87
 53
 54 interface BrewingFullInfoDto {
 55 id: string;
@@ -2190,7 +2200,7 @@ SCSS використовувався для стилізації елемент
 101 checkEquipmentStatus();
 102 fetchBrewingHistory();
 103 const intervalId = setInterval(() => {
-87
+88
 104 checkEquipmentStatus();
 105 fetchBrewingHistory();
 106 }, 3000);
@@ -2241,7 +2251,7 @@ SCSS використовувався для стилізації елемент
 151 </Typography>
 152 ),
 153 )}
-88
+89
 154 </Box>,
 155 );
 156 } else {
@@ -2289,7 +2299,7 @@ SCSS використовувався для стилізації елемент
 198 }
 199 };
 200
-89
+90
 201 const fetchBrewingHistory = async () => {
 202 try {
 203 const historyResponse = await getBrewingHistory(id!);
@@ -2342,7 +2352,7 @@ SCSS використовувався для стилізації елемент
 250 };
 251
 252 const handleConnectionStringChange = async () => {
-90
+91
 253 try {
 254 await updateConnectionString(id!, connectionString);
 255 } catch (error: any) {
@@ -2400,7 +2410,7 @@ SCSS використовувався для стилізації елемент
 307 marginTop: 4,
 308 }}
 309 >
-91
+92
 310 <Box sx={{ flex: 1, marginRight: 2 }}>
 311 <Typography variant="h3" gutterBottom>
 312 {t("connectionString")}
@@ -2453,7 +2463,7 @@ SCSS використовувався для стилізації елемент
 359 <Typography variant="h5" gutterBottom>
 360 {t("equipmentStatus")}
 361 </Typography>
-92
+93
 362 <Box sx={{ fontSize: "1.5rem", textAlign: "left" }}>
 363 {equipmentLogs}
 364 </Box>
@@ -2504,7 +2514,7 @@ SCSS використовувався для стилізації елемент
 409 variant="body1"
 410 sx={{ fontSize: "2rem" }}
 411 >
-93
+94
 412 {ingredient.name} -{" "}
 413 {ingredient.weight}g
 414 </Typography>
